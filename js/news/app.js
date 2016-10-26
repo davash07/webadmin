@@ -5,11 +5,11 @@
     var sync = $firebase(ref);
     $scope.DB = sync.$asArray();
     $scope.titulo='Noticias';
-    $scope.app={title:'',detail:''};
+    $scope.app={title:'', detail:'', date:''};
 
     $scope.add=function(){
         $scope.DB.$add($scope.app);
-        $scope.app={title:'',detail:''};
+        $scope.app={title:'', detail:'', date:''};
     };
     $scope.delete=function(item){
         $scope.DB.$remove(item);
@@ -19,3 +19,4 @@
     };
     });
 })();
+

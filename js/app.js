@@ -7,11 +7,11 @@
     $scope.DB = sync.$asArray();
     $scope.titulo='Usuarios';
     $scope.generos=['F','M'];
-    $scope.app={username:'',first_name:'',gender:'',email:''};
+    $scope.app={image_url:'', username:'',first_name:'',gender:'',email:''};
 
     $scope.add=function(){
         $scope.DB.$add($scope.app);
-        $scope.app={username:'',first_name:'',genero:'',email:''};
+        $scope.app={image_url:'', username:'',first_name:'',gender:'',email:''};
     };
     $scope.delete=function(item){
     $scope.DB.$remove(item);
@@ -20,3 +20,4 @@
 });
   
 })();
+
