@@ -6,15 +6,23 @@
     <script type="text/javascript" src="../../js/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script> 
    <script type="text/javascript" src="../../js/apifirebase.js"></script>
+        <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
   </head>
    
     <body ng-controller="appCtrl">
+        <script>
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+        </script>
   <div class="container">
+      
           <h1>{{ titulo }}</h1>
     </div>
 
  <div class="container">
-    <table style="width:100%" class="table" id="example">
+    <table class="table" id="example">
       <thead>
         <th>Avatar</th>
         <th>Nombre</th>

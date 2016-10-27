@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
+    <link rel="stylesheet" href="node_modules/angular-material/angular-materiaå.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script> 
+    <script type="text/javascript" src="js/apifrebase.js"></script>
+</head>
+
+<body ng-controller="appCtrl">
+      <script>
+        function dashboard(){
+            var url = "menu.html";
+            document.getElementById("iframe").src=url;
+        };
+        function users(){
+            var url = "modules/user/users.html";
+            document.getElementById("iframe").src=url;
+        };
+        function news(){
+            var url = "modules/new/news.html";
+            document.getElementById("iframe").src=url;
+        };
+        function events(){
+            var url = "modules/event/events.html";
+            document.getElementById("iframe").src=url;
+        };
+        function posts(){
+            var url = "modules/post/posts.html";
+            document.getElementById("iframe").src=url;
+        };
+        function classifieds(){
+            var url = "modules/classified/classifieds.html";
+            document.getElementById("iframe").src=url;
+        };
+          
+    </script>
+    <nav class="navbar no-margin nav-color" >
+        
+                <div class="navbar-header fixed-brand ">
+                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"  id="menu-toggle">
+                        <i class="fa fa-bars"></i>
+                      <!-- <span class="glyphicon glyphicon-th-large" ></span>--> 
+                    </button> 
+                    <a class="navbar-brand" href="#"><i class="fa  fa-4"></i> Administrador Encanto</a>   
+                </div><!-- navbar-header-->
+
+              <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">-->
+                                <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <i class="fa fa-bars" aria-hidden="true" ></i></button>
+                          <!--  </ul>
+                </div><!-- bs-example-navbar-collapse-1 -->
+        
+    </nav>
+    <div id="wrapper" style="margin-top:-20px">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" >
+            <ul class="sidebar-nav nav-pills nav-stacked" id="menu" >
+               <div ng-repeat="value in DB" style="color:#fff" ><center>
+                    <img src="{{value.image}}" height="100px" width="100px" class="img-circle" ><br>
+                    <p>{{value.name}}</p>
+                   <!-- <p>{{value.email}}</p>-->
+                   <p>{{value.useradmin}}</p>
+                </center></div>
+                 <!-- <li ng-repeat="value in DB" >
+                    <a href="#"  ng-controller="username"><span class="fa-stack fa-lg pull-left"><i class="fa fa-user fa-stack-1x "></i></span> {{value.username}}</a>  
+                </li>-->
+                <li class="" >
+                    <a href="#" onclick="dashboard();" ><span class="fa-stack fa-lg pull-left"><i class="fa fa-tachometer fa-stack-1x "></i></span>Dashboard</a>  
+                </li>
+                
+
+               <li >
+                    <a href="#" onclick="users();"><span class="fa-stack fa-lg pull-left"><i class="fa fa-user-circle-o fa-stack-1x "></i></span> Usuarios</a>
+                </li>
+                <li>
+                    <a href="#" onclick="news();"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Noticias</a>
+                    
+                </li>
+                <li>
+                    <a href="#" onclick="posts();"><span class="fa-stack fa-lg pull-left"><i class="fa fa-bookmark fa-stack-1x "></i></span> Publicaciones</a>
+                    
+                </li>
+                <li>
+                    <a href="#" onclick="events();"><span class="fa-stack fa-lg pull-left"><i class="fa fa-calendar fa-stack-1x "></i></span>Eventos</a>
+                </li>
+                <li>
+                    <a href="#" onclick="classifieds();"><span class="fa-stack fa-lg pull-left"><i class="fa fa-handshake-o fa-stack-1x "></i></span>Clasificados</a>
+                </li>
+<!--                <li>
+                    <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services</a>
+                </li>
+                <li>
+                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
+                </li>-->
+                <li>
+                    <a href="#" onclick="logout()"><span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x"></i></span> Logout</a>
+                </li>
+            </ul>
+        </div><!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid xyz">
+                
+                <div class="embed-responsive embed-responsive-16by9" style="min-height: 690px;" >
+                    <iframe id="iframe" class="embed-responsive-item" src="menu.html" allowfullscreen></iframe>
+                </div>
+                
+
+            </div>
+                </div>
+            </div>
+      
+
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>
+    
+    <script src="https://use.fontawesome.com/5b3b0d1d00.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/js/mdb.min.js"></script>
+   
+    <script src="js/js/sidebar_menu.js"></script>
+    <script src="https://use.fontawesome.com/5b3b0d1d00.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/js/mdb.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/0.9.2/angularfire.min.js"></script>
+    <script src="/node_modules/angular-material/angular-material.js"></script>
+<script type="text/javascript">
+        var username = window.localStorage.getItem('');
+        if (!username) {
+            window.location.href = "./login.html";
+        }
+        function logout() {
+            window.localStorage.removeItem('');
+            window.location.href = "./login.html";
+        }
+</script>
+</body>
+
+</html>
