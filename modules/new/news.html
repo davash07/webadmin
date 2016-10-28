@@ -9,26 +9,17 @@
         
   </head>
   <body ng-controller="appCtrl">
-       <script>
-     $(function () {
-        $.datepicker.setDefaults($.datepicker.regional["es"]);
-        $("#datepicker").datepicker({
-            dateFormat: 'dd/mm/yy',
-            firstDay: 1
-        });
-    });
-</script>
 <div class="container">
     <h1>{{ titulo }}</h1> 
      <button class="btn "  data-toggle="modal" data-target="#myModal">Añadir</button>
       </div>
-      
-    <div id="myModal" class="modal fade" role="dialog">
+     <!-- Modal Editar y Crear --> 
+    <form id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
           <div class="modal-content">
       <div class="modal-header">
           <center>
-          <h2 class=""><span>Nueva Noticia</span></h2>
+          <h2 class=""><span>Noticia</span></h2>
         </center>
         </div>
         <div class="modal-body text-sz">
@@ -36,7 +27,7 @@
          
             
             <br><br>
-            <input type="date" style="font-size: 15px;" ng-model="app.date" placeholder="Fecha" /><br>
+            <input type="text"  min="2013-01-01" ng-model="app.date" placeholder="DD-MM-YYYY" style="font-size: 15px;" /><br>
             <textarea type="text" style="font-size: 15px; height: 80px" ng-model="app.detail" class="md-textarea" placeholder="Detalle"></textarea><br>
       </div>
       <div class="modal-footer">
@@ -45,7 +36,32 @@
       </div>
       </div>
         </div>
+      </form>
+     <!-- Modal ver --> 
+    <div id="ModalVer" class="modal fade " role="dialog">
+      <div class="modal-dialog ">
+          <div class="modal-content card">
+      <div class="modal-header">
+          <center>
+          <h2 class="card-heade ">{{app.title}}</h2>
+        </center>
+        </div>
+        <div class="modal-body ">
+            <p  class="card-text text-center font-detail">{{app.detail}}</p>
       </div>
+    <div class="card-footer text-muted ">
+        <p class="card-text text-center">{{app.date}}</p>
+    </div>
+      <div class="modal-footer">
+          <center>
+              <a data-dismiss="modal"><i style="font-size:20px" class="fa fa-stack-5x fa-times"></i></a>
+      
+          </center>
+        </div>
+      </div>
+        </div>
+      </div>
+      <!------>
 <div class="container">    
   <table class="table"  id="example">
       <thead>
@@ -54,17 +70,23 @@
           <th style="width:400px;" >Descripcion</th>
           <th style="width:50px;"></th>
           <th style="width:50px;"></th>
+          <th style="width:50px;"></th>
       </thead>
       <tbody>
         <tr ng-repeat="value in DB">
           <td>{{value.date}}</td>
           <td>{{value.title}}</td>  
-          <td style="width:400px; max-width:400px; height: 100px" >{{value.detail}}</td>
+          <td style="width:400px; max-width:400px; height: 100%" >{{value.detail}}</td>
           <td>
-              <a class="red-text" style="font-size:17px" ng-click="delete(value)"><i class="fa fa-trash-o"></i></a>
+              <a class="red-text top-list" ng-click="delete(value)"><i class="fa fa-trash-o"></i></a>
               
           </td>
-          <td><a class="red-text" style="font-size:17px" ng-click="edit(value)"><i class="fa fa-pencil-square-o"></i></a></td>
+          <td>
+              <a class="red-text top-list" data-toggle="modal" data-target="#ModalVer" ng-click="ver(value)"><i class="fa fa-search"></i></a>
+          </td>
+          <td>
+              <a class="red-text top-list" data-toggle="modal" data-target="#myModal" ng-click="edit(value)"><i class="fa fa-pencil-square-o"></i></a>
+        </td>
         </tr>
       </tbody>
     </table>

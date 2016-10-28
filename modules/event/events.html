@@ -8,35 +8,70 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
   </head>
   <body ng-controller="appCtrl">
-  
+  <div class="container">
     <h1>{{ titulo }}</h1>
-    
-  <table class="table">
+    <div class="table-responsive">
+  <table class="table text-center">
       <thead>
-        <th>titulo</th>
-        <th>descripcion</th>
-        <th>Imagen</th>
-        <th>Lugar</th>
-        <th>Fecha</th>
-        <th>Hora</th>
+        <th class="text-center">Titulo</th>
+        <th class="text-center">Descripcion</th>
+        <th class="text-center">Imagen</th>
+        <th class="text-center">Lugar</th>
+        <th class="text-center">Fecha</th>
         <th></th>
         <th></th>
       </thead>
       <tbody>
         <tr ng-repeat="value in DB">
-          <td>{{value.title}}</td>
-          <td>{{value.description}}</td>
-          <td><img width="80px" src='{{value.image_url}}'></td>
-          <td>{{value.place}}</td>
-          <td>{{value.date}}</td>
-          <td>{{value.time}}</td>
+            <td><p class="alineacion">{{value.title}}</p></td>
+            <td><p class="alineacion">{{value.description}}</p></td>
+          <td><img width="80px" height="80px" src='{{value.image_url}}'></td>
+              <td><p class="alineacion">{{value.place}}</p></td>
+              <td><p class="alineacion">{{value.date}}</p></td>
           <td>
-          <a class="red-text" style="font-size:17px" ng-click="delete(value)"><i class="fa fa-trash-o"></i></a>
+          <a class="red-text" style="font-size:17px" ng-click="delete(value)"><i class="alineacion fa fa-trash-o"></i></a>
+          </td>
+         <td>
+              <a class="red-text top-list" data-toggle="modal" data-target="#ModalVer" ng-click="ver(value)"><i class="alineacion fa fa-search"></i></a>
           </td>
         </tr>
       </tbody>
     </table>
-   
+      </div>
+      
+      <!-- Modal ver --> 
+    <div id="ModalVer" class="modal fade " role="dialog">
+      <div class="modal-dialog ">
+          <div class="modal-content card">
+      <div class="modal-header">
+          <center>
+                <h3 class="card-heade ">{{app.title}}</h3>
+        </center>
+        </div>
+        <div class="modal-body ">
+            <p  class="card-text text-center font-detail">{{app.description}}</p>
+            <p  class="card-text text-center font-detail">{{app.place}}</p>
+           <center><img onclick="javascript:this.width=450;this.height=338" ondblclick="javascript:this.width=100;this.height=80" src="{{app.image_url}}"  width="80px" heigth="80px"></center> 
+      </div>
+    <div class="card-footer text-muted ">
+        <center>
+            <p class="card-text text-center">{{app.date}}</p>
+        </center>
+        <br>
+    </div>
+      <div class="modal-footer">
+          <center>
+              <a data-dismiss="modal"><i style="font-size:20px" class="fa fa-stack-5x fa-times"></i></a>
+      
+          </center>
+        </div>
+      </div>
+        </div>
+      </div>
+    
+    <!---->
+      
+   </div>
     <script src="https://use.fontawesome.com/5b3b0d1d00.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/js/mdb.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

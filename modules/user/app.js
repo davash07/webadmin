@@ -16,7 +16,9 @@
     $scope.delete=function(item){
     $scope.DB.$remove(item);
   };
- 
+    $scope.ver=function(value){
+        $scope.app=value;
+    };
 });
   
 })();

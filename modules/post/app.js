@@ -16,7 +16,12 @@
     };
     $scope.edit=function(value){
         $scope.app=value;
+        
+    };
+     $scope.ver=function(value){
+        $scope.app=value;
     };
     });
+    
 })();
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app"> 
     <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
     <script type="text/javascript" src="../../js/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script> 
@@ -13,42 +13,76 @@
     <body ng-controller="appCtrl">
         <script>
         $(document).ready(function() {
-    $('#example').DataTable();
-} );
+            $('#example').DataTable();
+        });
         </script>
   <div class="container">
       
           <h1>{{ titulo }}</h1>
-    </div>
-
- <div class="container">
-    <table class="table" id="example">
-      <thead>
-        <th>Avatar</th>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-        <th>Genero</th>
-        <th>ciudad</th>
-        <th>email</th>
+    
+    <div class="table-responsive">
+    <table class="table text-center" id="example">
+      <thead >
+        <th style="width:100px;" class="text-center" >Avatar</th>
+        <th style="width:100px;" class="text-center">Username</th>
+        <th style="width:100px;" class="text-center">Nombre</th>
+        <th style="width:100px;" class="text-center">Genero</th>
+        <th style="width:100px;" class="text-center">Ciudad</th>
+        <th style="width:100px;" class="text-center">Email</th>
+        <th style="width:50px;"></th>
+        <th style="width:50px;"></th>
       </thead>
       <tbody>
-        <tr ng-repeat="value in DB">
+        <tr ng-repeat="value in DB" >
           <td><img width="80px" height="80px" class="img-circle" src='{{value.image_url}}'></td>
-          <td>{{value.username}}</td>
-          <td>{{value.first_name}}</td>
-          <td>{{value.gender}}</td>
-          <td>{{value.country}}</td>
-          <td>{{value.email}}</td>
+          <td ><p class="alineacion">{{value.username}}</p></td>
+            <td ><p class="alineacion">{{value.first_name}}</p></td>
+            <td ><p class="alineacion">{{value.gender}}</p></td>
+            <td ><p class="alineacion">{{value.country}}</p></td>
+            <td ><p class="alineacion">{{value.email}}</p></td>
           <td>
-              <a class="red-text" style="font-size:17px" ng-click="delete(value)"><i class="fa fa-trash-o"></i></a>
+              <a class="red-text" style="font-size:17px" ng-click="delete(value)"><i class="alineacion fa fa-trash-o"></i></a>
+          </td>
+         <td>
+              <a class="red-text top-list" data-toggle="modal" data-target="#ModalVer" ng-click="ver(value)"><i class="alineacion fa fa-search"></i></a>
           </td>
         </tr>
       </tbody>
     </table>
+      </div>
+       <!-- Modal ver --> 
+    <div id="ModalVer" class="modal fade " role="dialog">
+      <div class="modal-dialog ">
+          <div class="modal-content card">
+      <div class="modal-header">
+          <center>
+              <img src="{{app.image_url}}" width="60px" class="img-circle">
+                <h3 class="card-heade ">{{app.username}}</h3>
+        </center>
+        </div>
+        <div class="modal-body ">
+            <p  class="card-text text-center font-detail">{{app.first_name}}</p>
+            <p  class="card-text text-center font-detail">{{app.gender}}</p>
+            <p  class="card-text text-center font-detail">{{app.country}}</p>
+      </div>
+    <div class="card-footer text-muted ">
+        <center>
+            <p class="card-text text-center">{{app.email}}</p>
+        </center>
+        <br>
+    </div>
+      <div class="modal-footer">
+          <center>
+              <a data-dismiss="modal"><i style="font-size:20px" class="fa fa-stack-5x fa-times"></i></a>
       
-      
-</div>   
+          </center>
+        </div>
+      </div>
+        </div>
+      </div>
     
+    <!---->
+      </div> 
     <script src="https://use.fontawesome.com/5b3b0d1d00.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/js/mdb.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

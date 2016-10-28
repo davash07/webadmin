@@ -65,9 +65,9 @@
                 </div><!-- bs-example-navbar-collapse-1 -->
         
     </nav>
-    <div id="wrapper" style="margin-top:-20px">
+    <div id="wrapper" style="margin-top:0px">
         <!-- Sidebar -->
-        <div id="sidebar-wrapper" >
+        <div id="sidebar-wrapper"  style="margin-top:-20px">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu" >
                <div ng-repeat="value in DB" style="color:#fff" ><center>
                     <img src="{{value.image}}" height="100px" width="100px" class="img-circle" ><br>
@@ -100,29 +100,17 @@
                 <li>
                     <a href="#" onclick="classifieds();"><span class="fa-stack fa-lg pull-left"><i class="fa fa-handshake-o fa-stack-1x "></i></span>Clasificados</a>
                 </li>
-<!--                <li>
-                    <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Services</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
-                </li>-->
                 <li>
                     <a href="#" onclick="logout()"><span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x"></i></span> Logout</a>
                 </li>
             </ul>
         </div><!-- /#sidebar-wrapper -->
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="margin-top:-40px">
             <div class="container-fluid xyz">
                 
-                <div class="embed-responsive embed-responsive-16by9" style="min-height: 690px;" >
-                    <iframe id="iframe" class="embed-responsive-item" src="menu.html" allowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-4by3" style="min-height:690px;">
+                    <iframe id="iframe" class="embed-responsive-item"  src="menu.html" allowfullscreen></iframe>
                 </div>
                 
 
