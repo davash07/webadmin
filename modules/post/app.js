@@ -18,9 +18,13 @@
         $scope.app=value;
         
     };
-     $scope.ver=function(value){
+    $scope.ver=function(value){
         $scope.app=value;
     };
+    $scope.vercomentarios=function(value){
+        $scope.app=value;
+    };
+    
     });
     
 })();

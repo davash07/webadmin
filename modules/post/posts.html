@@ -28,7 +28,9 @@
             <td><center><p class="alineacion" >{{value.user.username}}</p></center></td>
           <td style="width:400px; max-width:400px;" ><center>{{value.description}}</center></td>
           <td><center><img src="{{value.image_url}}"  width="80px" heigth="80px"></center></td> 
-          <td>{{value.comments.user}}</td>
+          <td>
+              <a class="red-text top-list" data-toggle="modal" data-target="#ModalVerComents" ng-click="ver(value)"><i class="alineacion fa fa-search "></i></a>
+            </td>
           <td>
               <a class="red-text top-list " ng-click="delete(value)"><i class="alineacion fa fa-trash-o "></i></a>
           </td>
@@ -43,21 +45,21 @@
     </table>
     
     <!-- Modal Comentarios --> 
-    <div id="ModalVer" class="modal fade " role="dialog">
+    <div id="ModalVerComents" class="modal fade " role="dialog">
       <div class="modal-dialog ">
           <div class="modal-content card">
       <div class="modal-header">
           <center>
-              <img src="{{app.comments.image_url}}" width="60px" class="img-circle">
+              
                 <h3 class="card-heade ">{{app.user.username}}</h3>
         </center>
         </div>
         <div class="modal-body ">
-            <p  class="card-text text-center font-detail">{{app.description}}</p>
+            <p  class="card-text text-center font-detail">{{app.comments.leght}}</p>
       </div>
     <div class="card-footer text-muted ">
         <center>
-        <img onclick="javascript:this.width=450;this.height=338" ondblclick="javascript:this.width=100;this.height=80" src="{{app.image_url}}"  width="80px" heigth="80px"></center>
+        <img onclick="javascript:this.width=450;this.height=338" ondblclick="javascript:this.width=100;this.height=80" src="{{app.app.comments.user.image_url}}"  width="80px" heigth="80px"></center>
         <br>
     </div>
       <div class="modal-footer">
@@ -80,7 +82,7 @@
           <div class="modal-content card">
       <div class="modal-header">
           <center>
-              <img src="{{app.user.image_url}}" width="60px" class="img-circle">
+              <img src="{{app.user.image_url}}" width="60px" class="">
                 <h3 class="card-heade ">{{app.user.username}}</h3>
         </center>
         </div>
