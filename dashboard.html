@@ -19,9 +19,27 @@
     <script type="text/javascript" src="app.js"></script> 
     <script type="text/javascript" src="js/apifrebase.js"></script>
 </head>
-
+    <script>
+      	$(window).load(function() {
+		
+		$(".se-pre-con").fadeOut("slow");;
+	});  
+    
+    </script>
 <body ng-controller="appCtrl">
+    <style>
+        svg{
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+    display:inline-block;
+}
+    </style>
+       <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+
+          
       <script>
+          
         function dashboard(){
             var url = "menu.html";
             document.getElementById("iframe").src=url;
@@ -106,10 +124,10 @@
             </ul>
         </div><!-- /#sidebar-wrapper -->
         <!-- Page Content -->
-        <div id="page-content-wrapper" style="margin-top:-40px">
-            <div class="container-fluid xyz">
+        <div id="page-content-wrapper" style="margin-top:0px">
+            <div class="container-fluid ">
                 
-                <div class="embed-responsive embed-responsive-4by3" style="min-height:690px;">
+                <div class="embed-responsive embed-responsive-21by9" style="min-height:690px;">
                     <iframe id="iframe" class="embed-responsive-item"  src="menu.html" allowfullscreen></iframe>
                 </div>
                 

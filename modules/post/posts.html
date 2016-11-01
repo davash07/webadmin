@@ -18,7 +18,6 @@
           <th style="width:100px;"><center>Usuario</center></th>
           <th style="width:200px;"><center>Descripcion</center></th>
           <th style="width:400px;"><center>Imagen Publicacion</center></th>
-          <th>Comentarios</th>
           <th style="width:50px;"></th>
           <th style="width:50px;"></th>
       </thead>
@@ -28,9 +27,6 @@
             <td><center><p class="alineacion" >{{value.user.username}}</p></center></td>
           <td style="width:400px; max-width:400px;" ><center>{{value.description}}</center></td>
           <td><center><img src="{{value.image_url}}"  width="80px" heigth="80px"></center></td> 
-          <td>
-              <a class="red-text top-list" data-toggle="modal" data-target="#ModalVerComents" ng-click="ver(value)"><i class="alineacion fa fa-search "></i></a>
-            </td>
           <td>
               <a class="red-text top-list " ng-click="delete(value)"><i class="alineacion fa fa-trash-o "></i></a>
           </td>
@@ -44,7 +40,8 @@
       </tbody>
     </table>
     
-    <!-- Modal Comentarios --> 
+    <!-- Modal Comentarios 
+    <div ng-controller="appView">
     <div id="ModalVerComents" class="modal fade " role="dialog">
       <div class="modal-dialog ">
           <div class="modal-content card">
@@ -55,7 +52,30 @@
         </center>
         </div>
         <div class="modal-body ">
-            <p  class="card-text text-center font-detail">{{app.comments.leght}}</p>
+           <table class="table">
+      <thead>
+          <th style="width:100px;"><center>comentario</center></th>
+          <th style="width:100px;"><center>descripcion</center></th>
+          <th style="width:200px;"><center>Creado</center></th>
+
+          <th style="width:50px;"></th>
+
+      </thead>
+      <tbody>
+        <tr ng-repeat="value.comments in DB" >
+          
+          <td style="width:400px; max-width:400px;" ><center>{{value.$id.comment}}</center></td>
+          <td><center>{{value.$id.description}}</center></td>
+            <td><center>{{value.$id.created_at}}</center></td> 
+          <td>
+              <a class="red-text top-list " ng-click="delete(value)"><i class="alineacion fa fa-trash-o "></i></a>
+            </td>
+  
+   
+            
+        </tr>
+      </tbody>
+    </table>
       </div>
     <div class="card-footer text-muted ">
         <center>
@@ -73,7 +93,6 @@
       </div>
     
     <!---->
-    
     
     
     <!-- Modal ver --> 
