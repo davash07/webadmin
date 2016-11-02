@@ -18,9 +18,8 @@
             $scope.DB.app(value);
     };
     
-    });
-    
-    
+});
+        
     app.controller('appView',function($scope, $firebase){
     var ref = new Firebase("https://encanto-development.firebaseio.com/classified/");
     var sync = $firebase(ref);

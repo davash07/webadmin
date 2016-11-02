@@ -6,15 +6,16 @@
     var sync = $firebase(ref);
     $scope.DB = sync.$asArray();
     $scope.titulo='Usuarios';
-    $scope.generos=['F','M'];
-    $scope.app={image_url:'', username:'',first_name:'',gender:'',email:''};
+    $scope.app={image_url:'', username:'',first_name:'',gender:'',email:'', idq:''};
 
     $scope.add=function(){
         $scope.DB.$add($scope.app);
-        $scope.app={image_url:'', username:'',first_name:'',gender:'',email:''};
+        $scope.app={image_url:'', username:'',first_name:'',gender:'',email:'', idq:''};
     };
     $scope.delete=function(item){
     $scope.DB.$remove(item);
+        
+
   };
     $scope.ver=function(value){
         $scope.app=value;
